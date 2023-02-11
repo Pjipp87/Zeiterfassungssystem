@@ -51,5 +51,10 @@ namespace Zeiterfassungssystem.Model
         {
             get { return lastName; }
         }
+
+        public Boolean IsWorking
+        {
+            get { return isWorking; }
+        }
     }
 }

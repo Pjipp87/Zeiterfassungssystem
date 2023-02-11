@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Zeiterfassungssystem.Model;
 
 namespace Zeiterfassungssystem
 {
@@ -25,12 +26,13 @@ namespace Zeiterfassungssystem
         private DateTime dt = DateTime.Now;
 
         private Boolean tempLoggedIn = false;
-        public UserView(String name)
+        public UserView()
         {
             InitializeComponent();
             timer();
-            UserWelcomeLabel.Content = name.Length!=0 ?  "Hallo " + name : "Willkommen";
-            if (tempLoggedIn)
+            UserWelcomeLabel.Content = User.aktiveUser != null ?  "Hallo " + User.aktiveUser.FirstName + " "+User.aktiveUser.LastName : "Willkommen";
+ 
+            if (User.aktiveUser.IsWorking)
             {
                 KommenButton.IsEnabled = false;
                 GehenButton.IsEnabled = true;
@@ -44,6 +46,7 @@ namespace Zeiterfassungssystem
 
         private void UserLogoutButton_Click(object sender, RoutedEventArgs e)
         {
+            User.aktiveUser = null;
             this.Content = new System.Windows.Controls.Frame().Content = new LoginView();
         }
 

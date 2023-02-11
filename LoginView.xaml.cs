@@ -58,18 +58,17 @@ namespace Zeiterfassungssystem
             if(!User.userList.TryGetValue(persNr, out User.aktiveUser))
             {
                 MessageBox.Show("Unbekannte Personalnummer!");
-            } else if (User.aktiveUser.IsAdmin && loginPassword.Equals(User.aktiveUser.Password))
+            } else if (User.aktiveUser.IsAdmin && loginPassword.Password.Equals(User.aktiveUser.Password))
             {
                 
                 this.Content = new System.Windows.Controls.Frame().Content = new AdminView();
             } else if (loginPassword.Password.Equals(User.aktiveUser.Password))
             {
 
-                this.Content = new System.Windows.Controls.Frame().Content = new UserView(PersonalNummer.Text);
+                this.Content = new System.Windows.Controls.Frame().Content = new UserView();
             } else
             {
                 loginPassword.Background = Brushes.Red;
-                loginPassword.Clear();
             }
           
             

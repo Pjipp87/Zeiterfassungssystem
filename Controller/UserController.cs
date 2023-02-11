@@ -22,7 +22,7 @@ namespace Zeiterfassungssystem.Controller
 
                 while (reader.Read())
                 {
-                    new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), false, reader.GetBoolean(4), reader.GetString(5));
+                    new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetBoolean(3), false, reader.GetBoolean(4), reader.GetString(6));
                 }
                 Console.WriteLine(User.userList.Count);
                 return true;
