@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\pjipp\source\repos\Pjipp87\Zeiterfassungssystem\obj\Release\net6.0-windows\
+C:\Users\pjipp\Source\Repos\Pjipp87\Zeiterfassungssystem\obj\Release\net6.0-windows\
 Zeiterfassungssystem
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\pjipp\source\repos\Pjipp87\Zeiterfassungssystem\App.xaml
+C:\Users\pjipp\Source\Repos\Pjipp87\Zeiterfassungssystem\App.xaml
 5746063725
 
-9-730463900
-194237474483
+10-346091696
+202-988230420
 AdminView.xaml;LoginView.xaml;MainWindow.xaml;RegisterView.xaml;UserView.xaml;
 
 True

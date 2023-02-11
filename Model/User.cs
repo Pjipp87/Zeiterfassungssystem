@@ -8,9 +8,9 @@ namespace Zeiterfassungssystem.Model
 {
     class User
     {
-        public static Dictionary<Int32, User> userList = new Dictionary<Int32, User>();
-
-        private Int32 userID;
+        public static Dictionary<int, User> userList = new Dictionary<Int32, User>();
+        public static User aktiveUser;
+        private int userID;
         private String firstName;
         private String lastName;
         private Boolean isAdmin;
@@ -18,7 +18,7 @@ namespace Zeiterfassungssystem.Model
         private Boolean isWorking;
         private String password;
 
-        public User(Int32 userID, String firstName, String lastName, Boolean isAdmin, Boolean isLoggedIn, Boolean isWorking, String password) 
+        public User(int userID, String firstName, String lastName, Boolean isAdmin, Boolean isLoggedIn, Boolean isWorking, String password) 
         {
             this.userID = userID;
             this.firstName = firstName;
@@ -28,6 +28,28 @@ namespace Zeiterfassungssystem.Model
             this.isWorking = isWorking;
             this.password = password;
             
+            userList.Add(userID, this);
+        }
+
+        public Boolean IsAdmin
+        {
+            get { return isAdmin; }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+
+        public String FirstName
+        {
+            get { return firstName; } 
+        }
+
+        public String LastName
+        {
+            get { return lastName; }
         }
     }
 }

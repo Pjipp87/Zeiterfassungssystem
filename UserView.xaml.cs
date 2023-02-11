@@ -70,9 +70,6 @@ namespace Zeiterfassungssystem
             }
         }
 
-        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UserTimeState.Content = ((DateTime)DatumUser.SelectedDate).ToString("dd.MM.yyyy");
-        }
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e) => UserTimeState.Content = ((DateTime)DatumUser.SelectedDate).ToString("dd.MM.yyyy");
     }
 }

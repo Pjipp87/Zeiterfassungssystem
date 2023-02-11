@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Zeiterfassungssystem.Controller;
+using Zeiterfassungssystem.Model;
 
 namespace Zeiterfassungssystem
 {
@@ -27,8 +29,10 @@ namespace Zeiterfassungssystem
         {
             InitializeComponent();
             timer();
-
-          
+            if(User.userList.Count == 0)
+            {
+               UserController.getAllUsers();
+            }
         }
 
         private async void timer()
@@ -42,15 +46,39 @@ namespace Zeiterfassungssystem
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if(tempadminLogin.IsChecked == true )
+            Int32 persNr = 0;
+            try
             {
+                persNr = Int32.Parse(PersonalNummer.Text);
+            } catch
+            {
+                MessageBox.Show("Bitte gültige Personalnummer eingeben!");
+            }
+
+            if(!User.userList.TryGetValue(persNr, out User.aktiveUser))
+            {
+                MessageBox.Show("Unbekannte Personalnummer!");
+            } else if (User.aktiveUser.IsAdmin && loginPassword.Equals(User.aktiveUser.Password))
+            {
+                
                 this.Content = new System.Windows.Controls.Frame().Content = new AdminView();
-            }
-            else
+            } else if (loginPassword.Password.Equals(User.aktiveUser.Password))
             {
+
                 this.Content = new System.Windows.Controls.Frame().Content = new UserView(PersonalNummer.Text);
+            } else
+            {
+                loginPassword.Background = Brushes.Red;
+                loginPassword.Clear();
             }
+          
             
+        }
+
+
+        private static Boolean checkPassword(String pw)
+        {
+            return User.aktiveUser.Password.Equals(pw); 
         }
     }
 }

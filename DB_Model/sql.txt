@@ -135,3 +135,19 @@ arbeitszeit
 JOIN benutzer ON benutzer.id = arbeitszeit.benutzer_id
 JOIN arbeitstag ON arbeitszeit.arbeitstag_id = arbeitstag.id
 # WHERE benutzer.id = 4712
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+DELIMITER $$
+
+CREATE PROCEDURE IF NOT EXISTS neuerMitarbeiter
+(firstN VARCHAR(250), lastN VARCHAR(250), pw VARCHAR(250), OUT n INT)
+BEGIN
+	INSERT INTO benutzer(firstname, lastname, PasswordHash, userpassword)
+    VALUES(firstN, lastN, pw, pw);
+    SELECT LAST_INSERT_ID() INTO n;
+END$$
+
+DELIMITER ;

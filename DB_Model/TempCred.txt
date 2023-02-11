@@ -1,0 +1,2 @@
+﻿UPDATE benutzer SET PasswordHash = PASSWORD('master') WHERE id = 4712;
+UPDATE benutzer SET PasswordHash = PASSWORD('admin') WHERE id = 4711;
