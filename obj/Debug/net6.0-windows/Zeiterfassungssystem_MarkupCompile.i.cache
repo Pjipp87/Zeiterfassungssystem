@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pjipp\source\repos\Zeiterfassungssystem\obj\Debug\net6.0-windows\
+C:\Users\pjipp\Source\Repos\Pjipp87\Zeiterfassungssystem\obj\Debug\net6.0-windows\
 Zeiterfassungssystem
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\pjipp\source\repos\Zeiterfassungssystem\App.xaml
+C:\Users\pjipp\Source\Repos\Pjipp87\Zeiterfassungssystem\App.xaml
 5746063725
 
 111094357980
 194237474483
 AdminView.xaml;LoginView.xaml;MainWindow.xaml;RegisterView.xaml;UserView.xaml;
 
-True
+False
 

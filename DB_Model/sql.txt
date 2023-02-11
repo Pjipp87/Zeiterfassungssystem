@@ -1,0 +1,137 @@
+DROP TABLE anfangszeit;
+DROP TABLE endezeit;
+
+CREATE TABLE anfangszeit(
+    benutzer_id int NOT null,
+    zeit time not null,
+    arbeitstag_id int not null,
+    PRIMARY KEy (zeit, arbeitstag_id),
+    FOREIGN Key (benutzer_id) REFERENCES benutzer(id),
+    FOREIGN KEY (arbeitstag_id) REFERENCES arbeitstag(id)
+    );
+
+CREATE TABLE endezeit(
+    benutzer_id int NOT null,
+    zeit time not null,
+    arbeitstag_id int not null,
+    PRIMARY KEy (zeit, arbeitstag_id),
+    FOREIGN Key (benutzer_id) REFERENCES benutzer(id),
+    FOREIGN KEY (arbeitstag_id) REFERENCES arbeitstag(id)
+    );
+
+Insert into anfangszeit(benutzer_id, zeit, arbeitstag_id) VALUES
+(4711, '08:00', 1),
+(4711, '13:00', 1),
+(4711, '08:15', 2),
+(4711, '07:45', 3),
+(4711, '07:45', 4);
+
+
+Insert into endezeit(benutzer_id, zeit, arbeitstag_id) VALUES
+(4711, '12:00', 1),
+(4711, '18:30', 1),
+(4711, '12:30', 2),
+(4711, '11:55', 3),
+(4711, '12:00', 4);
+
+
+#####################################################################
+
+
+SELECT
+benutzer.name 'Mitarbeiter',
+arbeitstag.Datum 'Arbeitstag',
+anfangszeit.zeit 'Arbeitsbegin'
+FROM
+benutzer
+JOIN benutzer_arbeitstag ON benutzer.id = benutzer_arbeitstag.benutzer_id
+JOIN arbeitstag ON benutzer_arbeitstag.arbeitstag_id = arbeitstag.id
+JOIN anfangszeit ON arbeitstag.id = anfangszeit.arbeitstag_id
+WHERE benutzer.id = 4711 AND arbeitstag.Datum = "2023-01-20"
+
+
+##########################################################################
+
+SELECT
+benutzer.name 'Mitarbeiter',
+arbeitstag.Datum 'Arbeitstag',
+anfangszeit.zeit 'Arbeitsbegin',
+endezeit.zeit 'Arbeitsende'
+FROM
+benutzer
+inner JOIN benutzer_arbeitstag ON benutzer.id = benutzer_arbeitstag.benutzer_id
+inner JOIN arbeitstag ON benutzer_arbeitstag.arbeitstag_id = arbeitstag.id
+right JOIN anfangszeit ON arbeitstag.id = anfangszeit.arbeitstag_id
+right JOIN endezeit ON arbeitstag.id = endezeit.arbeitstag_id
+WHERE benutzer.id = 4711 AND arbeitstag.Datum = "2023-01-20"
+
+
+--------------------------
+
+	SELECT `benutzer`.`name`, `arbeitstag`.`Datum`, `anfangszeit`.`zeit`, `endezeit`.`zeit`, `benutzer_arbeitstag`.*
+FROM `benutzer`
+	, `arbeitstag` 
+	LEFT JOIN `anfangszeit` ON `anfangszeit`.`benutzer_id` = `benutzer`.`id` 
+	LEFT JOIN `endezeit` ON `endezeit`.`benutzer_id` = `benutzer`.`id` 
+	LEFT JOIN `benutzer_arbeitstag` ON `benutzer_arbeitstag`.`benutzer_id` = `benutzer`.`id` LIMIT 0, 25
+
+
+#######################################
+SELECT
+benutzer.name 'Mitarbeiter',
+arbeitstag.Datum 'Arbeitstag',
+anfangszeit.zeit 'Arbeitsbegin'
+,endezeit.zeit 'Arbeitsende'
+FROM
+benutzer
+JOIN benutzer_arbeitstag ON benutzer.id = benutzer_arbeitstag.benutzer_id
+join arbeitstag on arbeitstag.id = benutzer_arbeitstag.arbeitstag_id
+JOIN anfangszeit ON arbeitstag.id = anfangszeit.arbeitstag_id
+JOIN endezeit ON arbeitstag.id = endezeit.arbeitstag_id
+WHERE benutzer.id = 4711 GROUP by arbeitstag
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+CREATE TABLE arbeitszeit(
+    arbeitszeit_id int AUTO_INCREMENT,
+    PRIMARY KEY (arbeitszeit_id),
+    benutzer_id int not null,
+    arbeitsbegin time,
+    arbeitsende time,
+    arbeitstag_id int not null,
+    FOREIGN KEY (benutzer_id) REFERENCES benutzer(id),
+    FOREIGN KEY (arbeitstag_id) REFERENCES arbeitstag(id)
+    );
+
+
+INSERT INTO arbeitszeit(benutzer_id, arbeitsbegin, arbeitsende, arbeitstag_id) VALUES
+(4711, '08:00', '12:00', 1),
+(4711, '13:00', '18:30', 1),
+(4711, '08:15', '12:30',2),
+(4711, '07:45','11:55', 3),
+(4711, '07:45', '12:00', 4),
+(4712, '08:00', '12:00', 1),
+(4712, '13:00', '18:30', 1),
+(4712, '08:15', '12:30',2),
+(4712, '07:45','11:55', 4),
+(4712, '13:45', '19:00', 4);
+
+
+
+
+*****************************************************************************************
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SELECT
+benutzer.id 'Mitarbeiternummer',
+benutzer.name 'Mitarbeiter',
+arbeitstag.Datum 'Arbeitstag',
+arbeitszeit.arbeitsbegin'Arbeitsbegin'
+,arbeitszeit.arbeitsende 'Arbeitsende'
+FROM
+arbeitszeit
+JOIN benutzer ON benutzer.id = arbeitszeit.benutzer_id
+JOIN arbeitstag ON arbeitszeit.arbeitstag_id = arbeitstag.id
+# WHERE benutzer.id = 4712

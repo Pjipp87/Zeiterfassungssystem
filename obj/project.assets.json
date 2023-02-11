@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pjipp\\source\\repos\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
+      "projectUniqueName": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
       "projectName": "Zeiterfassungssystem",
-      "projectPath": "C:\\Users\\pjipp\\source\\repos\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
+      "projectPath": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
       "packagesPath": "C:\\Users\\pjipp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pjipp\\source\\repos\\Zeiterfassungssystem\\obj\\",
+      "outputPath": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
