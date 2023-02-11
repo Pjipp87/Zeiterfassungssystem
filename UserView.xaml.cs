@@ -80,20 +80,20 @@ namespace Zeiterfassungssystem
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserTimeState.Content = ((DateTime)DatumUser.SelectedDate).ToString("yyyy-MM-dd");
             selectedDate = ((DateTime)DatumUser.SelectedDate).ToString("yyyy-MM-dd");
+
         }
 
         private void ArbeitszeitenAnzeigen_Click(object sender, RoutedEventArgs e)
         {
-            // Fehler
-            MessageBox.Show("Click");
-            ArbeitszeitVormittag.Content = selectedDate;
-            List<String> listeDatum;
-            if(ArbeitszeitController.getArbeitstagBenutzer(User.aktiveUser.UserID, DatumUser.Text).Count() > 0)
+            
+            ArbeitszeitDatum.Content = ((DateTime)DatumUser.SelectedDate).ToString("dd. MMMM yyyy");
+            List<String> listeDatum = ArbeitszeitController.getArbeitstagBenutzer(User.aktiveUser.UserID, selectedDate);
+
+            if (listeDatum.Count > 0)
             {
                 listeDatum = ArbeitszeitController.getArbeitstagBenutzer(User.aktiveUser.UserID, selectedDate);
-                ArbeitszeitVormittag.Content = "test";
+                ArbeitszeitVormittag.Content = listeDatum[0];
                 ArbeiszeitNachmittags.Content = listeDatum[1];
             }
         }

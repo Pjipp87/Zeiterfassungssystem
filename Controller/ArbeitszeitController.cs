@@ -64,24 +64,16 @@ namespace Zeiterfassungssystem.Controller
         public static List<String> getArbeitstagBenutzer(int mitarbeiternummer, String datum)
         {
 
-            List<String> liste = new List<String>();
+            List<String> liste = new List<string>(); 
             try
             {
                 DBController.con.Open();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = DBController.con;
-                cmd.CommandText = "arbeitstagBenutzer";
-                // PARAMETER EINFÜGEN
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@id", mitarbeiternummer.ToString());
-                cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.AddWithValue("@datum", datum);
-                cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
+                string sqlQuery = $"SELECT arbeitstag.Datum, arbeitszeit.arbeitsbegin,arbeitszeit.arbeitsende FROM arbeitstag JOIN arbeitszeit ON arbeitstag.id = arbeitszeit.arbeitstag_id WHERE arbeitszeit.benutzer_id = '{mitarbeiternummer}' AND arbeitstag.Datum = '{datum}';";
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, DBController.con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+               
                 while (reader.Read()) {
-                    liste.Add(reader.GetDateTime(0).ToString() + ": " + reader.GetDateTime(1).ToString() + " - " + reader.GetDateTime(1).ToString());
-                    MessageBox.Show(reader.GetDateTime(0).ToString() + ": " + reader.GetDateTime(1).ToString() + " - " + reader.GetDateTime(1).ToString());
+                    liste.Add(reader.GetString(1).Split(":")[0]+":"+reader.GetString(1).Split(":")[1] + "\t"+ reader.GetString(2).Split(":")[0] + ":" + reader.GetString(2).Split(":")[1]);                    
                 }
                 return liste;
             }

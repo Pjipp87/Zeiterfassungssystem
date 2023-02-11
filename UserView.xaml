@@ -17,9 +17,10 @@
         <Label x:Name="AktuelleZeitUserView" Content="Label" HorizontalAlignment="Left" Margin="110,74,0,0" VerticalAlignment="Top" Width="160"/>
         <Label x:Name="UserTimeState" Content="" HorizontalAlignment="Left" Margin="13,176,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DatumUser" FontSize="18"  HorizontalAlignment="Left" Margin="13,225,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
-        <Label x:Name="ArbeitszeitVormittag" FontSize="18" Content="" HorizontalAlignment="Left" Margin="212,225,0,0" VerticalAlignment="Top" Width="400"/>
-        <Label x:Name="ArbeiszeitNachmittags" Content="" FontSize="18" HorizontalAlignment="Left" Margin="212,264,0,0" VerticalAlignment="Top" Width="400"/>
+        <Label x:Name="ArbeitszeitVormittag" FontSize="18" Content="" HorizontalAlignment="Left" Margin="229,258,0,0" VerticalAlignment="Top" Width="400"/>
+        <Label x:Name="ArbeiszeitNachmittags" Content="" FontSize="18" HorizontalAlignment="Left" Margin="229,292,0,0" VerticalAlignment="Top" Width="400"/>
         <Button x:Name="ArbeitszeitenAnzeigen" Content="Arbeitszeiten Anzeigen" Padding="0,5" HorizontalAlignment="Left" Margin="13,266,0,0" VerticalAlignment="Top" Width="177" Click="ArbeitszeitenAnzeigen_Click"/>
+        <Label x:Name="ArbeitszeitDatum" Content=""  FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Margin="229,224,0,0" />
 
     </Grid>
 </Page>

@@ -80,5 +80,13 @@ namespace Zeiterfassungssystem
         {
             return User.aktiveUser.Password.Equals(pw); 
         }
+
+        private void LoginButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton_Click(sender, e);
+            }
+        }
     }
 }
