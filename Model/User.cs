@@ -56,5 +56,10 @@ namespace Zeiterfassungssystem.Model
         {
             get { return isWorking; }
         }
+
+        public int UserID
+        {
+            get { return userID; }
+        }
     }
 }

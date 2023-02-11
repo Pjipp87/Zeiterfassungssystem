@@ -151,3 +151,49 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+
+----------------------------------------------------------------
+
+DELIMITER $$
+
+CREATE PROCEDURE temp
+(ma VARCHAR(250))
+BEGIN
+	INSERT INTO arbeitszeit(benutzer_id, arbeitsbegin, arbeitstag_id)
+    VALUES (ma, now(), (SELECT MAX(id) FROM `arbeitstag`));
+    UPDATE benutzer SET isWorking = true WHERE id = ma;
+END
+
+DELIMITER ;
+
+----------------------------------------------------------------------
+
+SELECT
+arbeitstag.Datum,
+arbeitszeit.arbeitsbegin,
+arbeitszeit.arbeitsende
+FROM
+arbeitstag
+JOIN arbeitszeit ON arbeitstag.id = arbeitszeit.arbeitstag_id
+WHERE arbeitszeit.benutzer_id = 4711 AND arbeitstag.Datum = "2023-02-11"
+
+---------------------------------------------------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE arbeitstagBenutzer
+(id int, datum date)
+Begin
+SELECT
+arbeitstag.Datum,
+arbeitszeit.arbeitsbegin,
+arbeitszeit.arbeitsende
+FROM
+arbeitstag
+JOIN arbeitszeit ON arbeitstag.id = arbeitszeit.arbeitstag_id
+WHERE arbeitszeit.benutzer_id = ma AND arbeitstag.Datum = datum;
+END$$
+
+DELIMITER ;

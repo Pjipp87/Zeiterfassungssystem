@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Zeiterfassungssystem.Controller;
 using Zeiterfassungssystem.Model;
 
 namespace Zeiterfassungssystem
@@ -34,11 +35,13 @@ namespace Zeiterfassungssystem
  
             if (User.aktiveUser.IsWorking)
             {
+                
                 KommenButton.IsEnabled = false;
                 GehenButton.IsEnabled = true;
             }
             else
             {
+               
                 KommenButton.IsEnabled = true;
                 GehenButton.IsEnabled = false;
             }
@@ -54,6 +57,7 @@ namespace Zeiterfassungssystem
         {
             KommenButton.IsEnabled = false;
             GehenButton.IsEnabled = true;
+            ArbeitszeitController.arbeitsBegin(User.aktiveUser.UserID);
             UserTimeState.Content = "Gekommen um " + DateTime.Now.ToString("HH:mm");
         }
 
@@ -61,6 +65,7 @@ namespace Zeiterfassungssystem
         {
             KommenButton.IsEnabled = true;
             GehenButton.IsEnabled = false;
+            ArbeitszeitController.arbeitsEnde(User.aktiveUser.UserID);
             UserTimeState.Content = "Gegangen um " + DateTime.Now.ToString("HH:mm");
         }
 
@@ -74,5 +79,10 @@ namespace Zeiterfassungssystem
         }
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e) => UserTimeState.Content = ((DateTime)DatumUser.SelectedDate).ToString("dd.MM.yyyy");
+
+        private void ArbeitszeitenAnzeigen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
