@@ -33,6 +33,7 @@ namespace Zeiterfassungssystem
             {
                UserController.getAllUsers();
             }
+            ArbeitstagController.checkForCurrentDateInDB();
         }
 
         private async void timer()
