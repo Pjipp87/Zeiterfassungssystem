@@ -1,7 +1,7 @@
 
 //TODO
 	Datenbank
-		Abfrage die die gearbeiteten Stunden/Tag und Stunden/Monat ausgibt
+		Abfrage die die gearbeiteten Stunden/Monat ausgibt
 
 	GUI
 		Admin Panel
