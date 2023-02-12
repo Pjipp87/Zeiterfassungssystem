@@ -9,6 +9,7 @@ namespace Zeiterfassungssystem
 {
     class DBController
     {
-        public static MySqlConnection con = new MySqlConnection(@"server=localhost;user=root;database=zeiterfassungtest;password=");
+        //public static MySqlConnection con = new MySqlConnection(@"server=localhost;user=root;database=zeiterfassungtest;password=");
+        public static MySqlConnection con = new MySqlConnection(@"server=192.168.178.39;user=MasterUser;database=zeiterfassungtest;password=");
     }
 }

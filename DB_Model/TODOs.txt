@@ -4,14 +4,15 @@
 		Abfrage die die gearbeiteten Stunden/Monat ausgibt
 
 	GUI
-		Admin Panel
-			Benutzer Anlegen
-			Benutzer Ändern
-			Alle Daten auslesen
-			Datensatz eines Mitarbeiters auslesen
+		Ladebildschirm bei Datenbankabfrage
+			Admin Panel
+				Benutzer Anlegen
+				Benutzer Ändern
+				Alle Daten auslesen
+				Datensatz eines Mitarbeiters auslesen
 		
-		Benutzer Panel
-			Ausgabe als Tabelle
+			Benutzer Panel
+				Ausgabe als Tabelle
 
 		
 		
