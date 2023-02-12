@@ -68,12 +68,12 @@ namespace Zeiterfassungssystem.Controller
             try
             {
                 DBController.con.Open();
-                string sqlQuery = $"SELECT arbeitstag.Datum, arbeitszeit.arbeitsbegin,arbeitszeit.arbeitsende FROM arbeitstag JOIN arbeitszeit ON arbeitstag.id = arbeitszeit.arbeitstag_id WHERE arbeitszeit.benutzer_id = '{mitarbeiternummer}' AND arbeitstag.Datum = '{datum}';";
+                string sqlQuery = $"SELECT arbeitstag.Datum, arbeitszeit.arbeitsbegin,arbeitszeit.arbeitsende , TIMEDIFF(arbeitszeit.arbeitsende, arbeitszeit.arbeitsbegin) as 'Stunden' FROM arbeitstag JOIN arbeitszeit ON arbeitstag.id = arbeitszeit.arbeitstag_id WHERE arbeitszeit.benutzer_id = '{mitarbeiternummer}' AND arbeitstag.Datum = '{datum}';";
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, DBController.con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                
                 while (reader.Read()) {
-                    liste.Add(reader.GetString(1).Split(":")[0]+":"+reader.GetString(1).Split(":")[1] + "\t"+ reader.GetString(2).Split(":")[0] + ":" + reader.GetString(2).Split(":")[1]);                    
+                    liste.Add(reader.GetString(1).Split(":")[0]+":"+reader.GetString(1).Split(":")[1] + "\t"+ reader.GetString(2).Split(":")[0] + ":" + reader.GetString(2).Split(":")[1]+ "\tStunden: "+ reader.GetString(3).Split(":")[0] + ":" + reader.GetString(3).Split(":")[1]);                    
                 }
                 return liste;
             }

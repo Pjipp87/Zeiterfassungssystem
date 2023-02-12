@@ -1,0 +1,23 @@
+
+//TODO
+	Datenbank
+		Abfrage die die gearbeiteten Stunden/Monat ausgibt
+
+	GUI
+		Admin Panel
+			Benutzer Anlegen
+			Benutzer Ändern
+			Alle Daten auslesen
+			Datensatz eines Mitarbeiters auslesen
+		
+		Benutzer Panel
+			Ausgabe als Tabelle
+
+		
+		
+//Bugs
+	Wenn ein MA angemeldet ist, wird beim Auslesen eines Datensatzes ein Fehler produziert, da ein sich ein NULL Value in den Daten befindet
+	Wenn ein MA nur Vormittags ODER Nachmittags gearbeitet hat, wird ein Fehler geworfen
+	
+
+		
