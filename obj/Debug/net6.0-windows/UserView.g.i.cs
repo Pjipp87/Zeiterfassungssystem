@@ -125,7 +125,7 @@ namespace Zeiterfassungssystem {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Zeiterfassungssystem;V1.0.0.0;component/userview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Zeiterfassungssystem;component/userview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\UserView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

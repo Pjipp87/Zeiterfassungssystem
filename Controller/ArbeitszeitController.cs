@@ -73,8 +73,7 @@ namespace Zeiterfassungssystem.Controller
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, DBController.con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    new Arbeitszeiten(reader.GetString(1).Split(":")[0] + ":" + reader.GetString(1).Split(":")[1], reader.GetString(2).Split(":")[0] + ":" + reader.GetString(1).Split(":")[2], reader.GetString(3).Split(":")[0] + ":" + reader.GetString(3).Split(":")[1]);
-                    //liste.Add(reader.GetString(1).Split(":")[0]+":"+reader.GetString(1).Split(":")[1] + "\t"+ reader.GetString(2).Split(":")[0] + ":" + reader.GetString(2).Split(":")[1]+ "\tStunden: "+ reader.GetString(3).Split(":")[0] + ":" + reader.GetString(3).Split(":")[1]);                    
+                    new Arbeitszeiten(reader.GetString(1).Split(":")[0] + ":" + reader.GetString(1).Split(":")[1], reader.GetString(2).Split(":")[0] + ":" + reader.GetString(1).Split(":")[2], reader.GetString(3).Split(":")[0] + ":" + reader.GetString(3).Split(":")[1]);                 
                 }
                 return true;
             }
