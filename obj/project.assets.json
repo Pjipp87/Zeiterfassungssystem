@@ -1562,23 +1562,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pjipp\\.nuget\\packages\\": {},
+    "C:\\Users\\pascaljipp\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
+      "projectUniqueName": "C:\\Users\\pascaljipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
       "projectName": "Zeiterfassungssystem",
-      "projectPath": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
-      "packagesPath": "C:\\Users\\pjipp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pjipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\obj\\",
+      "projectPath": "C:\\Users\\pascaljipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\Zeiterfassungssystem.csproj",
+      "packagesPath": "C:\\Users\\pascaljipp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pascaljipp\\Source\\Repos\\Pjipp87\\Zeiterfassungssystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pjipp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pascaljipp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1587,7 +1587,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

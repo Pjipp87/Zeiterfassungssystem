@@ -12,7 +12,7 @@
 				Datensatz eines Mitarbeiters auslesen
 		
 			Benutzer Panel
-				Ausgabe als Tabelle
+				Ausgabe als DataGrid
 
 		
 		
