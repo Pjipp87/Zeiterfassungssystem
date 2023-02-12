@@ -15,10 +15,11 @@
         <Button x:Name="GehenButton" Click="GehenButton_Click" Content="Gehen" Background="red" Padding="15,5" Width="115" FontSize="20" HorizontalAlignment="Left" Margin="155,117,0,0" VerticalAlignment="Top"/>
         <Label Content="Aktuelle Uhrzeit:" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
         <Label x:Name="AktuelleZeitUserView" Content="Label" HorizontalAlignment="Left" Margin="110,74,0,0" VerticalAlignment="Top" Width="160"/>
-        <Label x:Name="UserTimeState" Content="" HorizontalAlignment="Left" Margin="13,176,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="DatumUser" FontSize="18"  HorizontalAlignment="Left" Margin="13,225,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
-        <Button x:Name="ArbeitszeitenAnzeigen" Content="Arbeitszeiten Anzeigen" Padding="0,5" HorizontalAlignment="Left" Margin="13,266,0,0" VerticalAlignment="Top" Width="177" Click="ArbeitszeitenAnzeigen_Click"/>
-        <Label x:Name="ArbeitszeitDatum" Content=""  FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Margin="229,233,0,0" />
+        <DatePicker x:Name="DatumUser" FontSize="18"  HorizontalAlignment="Left" Margin="13,193,0,0" VerticalAlignment="Top" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Button x:Name="ArbeitszeitenAnzeigen" Content="Arbeitszeiten Anzeigen" Padding="0,5" HorizontalAlignment="Left" Margin="13,255,0,0" VerticalAlignment="Top" Width="177" Click="ArbeitszeitenAnzeigen_Click"/>
+        <DataGrid x:Name="ArbeitszeitenGrid" FontSize="18"  Background="AliceBlue" ColumnHeaderHeight="30" RowBackground="LightYellow" VerticalScrollBarVisibility="Hidden" ColumnWidth="100" RowHeight="30" HorizontalScrollBarVisibility="Hidden"   CanUserSortColumns = "False"   CanUserResizeColumns="False"   CanUserReorderColumns="False"  IsReadOnly="True"  AlternatingRowBackground="LightBlue"  d:ItemsSource="{d:SampleData ItemCount=2}" Margin="225,193,166,83"/>
+        <Label x:Name="UserTimeState" Content=""  FontSize="18" HorizontalAlignment="Left" Margin="292,119,0,0" VerticalAlignment="Top" Width="342"/>
+        <!-- 
         <ListView x:Name="ArbeitszeitenListView" Visibility="Hidden" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="229,266,156,44">
             <ListView.View>
                 <GridView>
@@ -26,6 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        -->
 
     </Grid>
 </Page>

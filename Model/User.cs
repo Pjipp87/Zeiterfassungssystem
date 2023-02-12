@@ -55,6 +55,7 @@ namespace Zeiterfassungssystem.Model
         public Boolean IsWorking
         {
             get { return isWorking; }
+            set { isWorking = value; }
         }
 
         public int UserID
